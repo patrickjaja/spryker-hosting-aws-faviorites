@@ -21,3 +21,27 @@ This document provides an overview of the AWS services used in a Spryker project
 | ![SNS](https://d1idiovbex4hy4.cloudfront.net/icon/6002c6713f40e8a35d365605542e72b0-03c2386fb392e0d689e45d9b4f683a8d.svg)             | SNS                  | Fully managed messaging service for both application-to-application (A2A) and application-to-person (A2P) communication.                                                                                                                            | <ul><li>Sending notifications. <li>Sending alerts.</li></ul>                                                                                                                                                                                                                                                                                                                              | [SNS](https://eu-central-1.console.aws.amazon.com/sns/v3/home?region=eu-central-1#/homepage)                                                                                                                                     |
 | ![Route 53](https://d1idiovbex4hy4.cloudfront.net/icon/f5d2c00d40914bff4f82f29f9ef768bc-53a84099cf556710383a52b4612a8612.svg)        | Route 53             | Scalable and highly available Domain Name System (DNS) web service.                                                                                                                                                                                 | <ul><li>Managing DNS records.</li></ul>                                                                                                                                                                                                                                                                                                                                                   | [Route 53](https://us-east-1.console.aws.amazon.com/route53/v2/home?region=eu-central-1#Dashboard)                                                                                                                               |
 | ![WAF](https://d1idiovbex4hy4.cloudfront.net/icon/47342d1bee153385294760bddb8a7f49-049868fe370f260d7efa3170efb113c3.svg)             | WAF                  | Web application firewall that helps protect your web applications or APIs against common web exploits.                                                                                                                                              | <ul><li>Protecting from web exploits. <li>Protecting from attacks.</li></ul>                                                                                                                                                                                                                                                                                                              | [WAF](https://us-east-1.console.aws.amazon.com/wafv2/homev2/home?region=eu-central-1#/)                                                                                                                                          |
+
+
+
+Per default you get two environments (more environments on request)
+ - dev
+ - prod
+
+The are splitted in following services:
+
+And have following ressources:
+ - S = 
+ - M = 
+ - L = 
+
+You get following executable Pipelines:
+ - E2E_Tests_<ENV>
+ - Rollout_Scheduler__<ENV>
+ - Build_Spryker_
+ - DESTRUCTIVE_Deploy_Spryker_
+   - will execute projects config/install/destructive.yml file
+ - NORMAL_Deploy_Spryker_
+ - Maintenance_Enable_
+ - ECS_Updater_
+   - is used to deploy environment variable changes (as Normal_Deploy_Spryker_ would do, but faster)
